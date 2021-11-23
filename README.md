@@ -50,3 +50,20 @@
 [nektos/act]: https://github.com/nektos/act
 [actions/virtual-environments]: https://github.com/actions/virtual-environments
 [catthehacker/virtual-environments-fork]: https://github.com/catthehacker/virtual-environments-fork/tree/master/images/linux
+
+## AMSK latinum image
+
+Create the image:
+
+```bash
+(latinum) (base) [liporace@localhost ubuntu]$ pwd
+.../docker_images/linux/ubuntu
+(latinum) (base) [liporace@localhost ubuntu]$ docker build -t liporace/act-latinum .
+```
+
+Push to Dockerhub:
+
+```bash
+$ docker login
+$ docker push liporace/act-latinum
+```

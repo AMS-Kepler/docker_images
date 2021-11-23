@@ -1,5 +1,5 @@
-ARG FROM_IMAGE
-ARG FROM_TAG
+ARG FROM_IMAGE=ubuntu
+ARG FROM_TAG=20.04
 FROM ${FROM_IMAGE}:${FROM_TAG}
 
 # > automatic buildx ARGs
@@ -12,7 +12,7 @@ ARG FROM_TAG
 # > Our custom ARGs
 ARG NODE_VERSION=14
 ARG DISTRO=ubuntu
-ARG TYPE=act
+ARG TYPE=latinum
 ARG RUNNER=root
 
 # > Force apt to not be interactive/not ask
@@ -20,7 +20,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 SHELL [ "/bin/bash", "--noprofile", "--norc", "-e", "-o", "pipefail", "-c" ]
 
-COPY ./linux/${DISTRO}/scripts /imagegeneration/installers
+COPY scripts /imagegeneration/installers
 RUN /imagegeneration/installers/${TYPE}.sh
 
 ARG BUILD_TAG
